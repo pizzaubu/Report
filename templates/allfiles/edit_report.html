@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Edit Meeting Report</h2>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Changes</button>
-  </form>
+<section class="section-conten padding-y" style="min-height:84vh">
+    <div class="container-fluid">
+        <div class="row mb-4">
+            <h2>Edit Meeting Report</h2>
+            <div class="offset-4 col-4">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
