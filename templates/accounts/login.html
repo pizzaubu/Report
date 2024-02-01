@@ -15,7 +15,7 @@
                         {% include 'includes/alerts.html' %}
                         <form action="{% url 'login' %}" method="POST">
                             {% csrf_token %}
-                            {% for field in login_forms.visible_fields %}
+                            {% for field in form %}
                                 <div class="row mb-3">
                                     <div class="col-12">
                                         <label class="form-label" for="">{{field.label}}</label>
