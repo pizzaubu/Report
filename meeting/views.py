@@ -7,7 +7,7 @@ def create_meeting(request):
         form = MeetingForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('meeting_list')  # สามารถเปลี่ยนไปยังหน้าอื่นก็ได้
+            return redirect('home')  # สามารถเปลี่ยนไปยังหน้าอื่นก็ได้
     else:
         form = MeetingForm()
 
