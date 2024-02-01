@@ -1,0 +1,45 @@
+{% load static %}
+
+<!-- Using the latest Bootstrap version (v5.3) -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <img class="logo" src="{% static 'image/logo.png' %}" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-bars"></i> เอกสารทั้งหมด
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <!-- <li><a class="dropdown-item" href="#"></a></li>
+            {% for category in links %}
+              <li><a class="dropdown-item" href="#">#</a></li>
+            {% endfor %} -->
+          </ul>
+        </li>
+      </ul>
+      <!--<form action="#" class="d-flex search" method="GET">
+        <input class="form-control me-2" type="search" placeholder="ค้นหา" aria-label="Search" name="keyword">
+        <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+      </form>-->
+      <div class="d-flex">
+        {% if user.id is None %}
+          <div class="mx-2">
+            <small class="title text-muted">ยินดีต้อนรับ แขกผู้มาเยือน!</small><br>
+            <a href="{% url 'login' %}">เข้าสู่ระบบ</a> | <a href="{% url 'register' %}"> สมัครสมาชิก</a>
+          </div>
+        {% else %}
+          <div class="mx-2">
+            <small class="title text-muted">ยินดีต้อนรับ {{user.first_name}}!</small><br>
+            <a href="{% url 'dashboard' %}">แดชบอร์ด</a> | <a href="{% url 'logout' %}"> ออกจากระบบ</a>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>

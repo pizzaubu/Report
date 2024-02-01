@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Meeting Reports</h2>
+  <ul>
+    {% for report in reports %}
+      <li>{{ report.header }} - <a href="{% url 'edit_report' report.id %}">Edit</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

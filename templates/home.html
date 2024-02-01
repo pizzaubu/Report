@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %} 
+{% block content %}
+<section class="section-intro mb-4">
+    <div class="container-fluid">
+        <h1>ค้นหารายงานการประชุม</h1>
+        <form method="GET" action="#">
+            <div class="form-group">
+                <label for="meeting_title">หัวข้อการประชุม:</label>
+                <input type="text" name="meeting_title" id="meeting_title" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">ค้นหา</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

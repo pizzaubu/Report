@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+body {
+    font-family: Anuphan;
+}
+.text-eng {
+    font-family: Ubuntu;
+}
+
+.h-100vh {
+    height: 100vh;
+}
+

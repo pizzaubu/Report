@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="section-content padding-y">
+
+<!-- ============================ COMPONENT REGISTER   ================================= -->
+    <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+        <article class="card-body">
+            {% include 'includes/alerts.html' %}
+            <header class="mb-4"><h4 class="card-title">ลงทะเบียน</h4></header>
+            <form action="{% url 'register' %}" method="POST">
+                {% csrf_token %}
+                {% for field in form.visible_fields %}
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label class="form-label" for="">{{field.label}}</label>
+                                {{field}}
+                                {% for error in field.errors %}
+                                    <span>{{error}}</span>
+                                {% endfor %}
+                        </div>  
+                    </div>
+                {% endfor %}
+                <div class="row">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary btn-block"> ลงทะเบียน </button>
+                    </div>
+                </div> <!-- form-group// -->
+                {{ form.email.errors }}
+                {{ form.non_field_errors }}
+            </form>
+        </article><!-- card-body.// -->
+    </div> <!-- card .// -->
+    <p class="text-center mt-4">มีบัญชีแล้วหรือยัง? <a href="{% url 'login' %}">เข้าสู่ระบบ</a></p>
+<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+</section>
+
+{% endblock %}

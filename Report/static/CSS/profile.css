@@ -1,0 +1,16 @@
+#profile-filename {
+   text-align: center;
+}
+    
+/* ซ่อนชื่อไฟล์ */
+/*input[type="file"] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}*/
+  
+/* เพิ่มสไตล์ปุ่มเลือกรูป */
+label[for="profile-picture"] {
+   cursor: pointer;
+}
+

@@ -1,0 +1,27 @@
+.product-desc {
+    background-image: url('/static/image/background.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.fa-star, .fa-star-half-alt, .fa-star-half {
+    font-size: 24px;
+    color: #FFD700;
+}
+
+.fa-star-xs {
+    font-size: 16px;
+    color: #FFD700;
+}
+
+.fa-star-grey {
+    color:#eaeaea;
+}
+
+.img-custom {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+  
