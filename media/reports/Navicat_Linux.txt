@@ -1,0 +1,10 @@
+https://www.navicat.com/en/download/navicat-for-mysql#linux
+ลิงค์สำหรับ download สำหรับใช้กับ Linux
+
+
+The execution command:
+chmod +x navicat16-mysql-en.AppImage
+./navicat16-mysql-en.AppImage
+
+Note: Since Ubuntu 22.04, additional package may be required. Install it by executing the following command:
+sudo apt install libfuse2

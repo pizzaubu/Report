@@ -8,7 +8,7 @@ def create_report(request):
         form = MeetingReportForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('success_page') 
+            return redirect('home') 
     else:
         form = MeetingReportForm()
 
