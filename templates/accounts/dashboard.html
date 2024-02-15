@@ -8,9 +8,9 @@
             <aside class="col-md-3">
                 <!--   SIDEBAR   -->
                 <ul class="list-group">
-                    <a class="list-group-item active" href="#"> Dashboard </a>
+                    <a class="list-group-item active" href="{% url 'dashboard' %}"> Dashboard </a>
                     <a class="list-group-item" href="#"> การตั้งค่า </a>
-                    <a class="list-group-item" href="#"> เปลี่ยนรหัสผ่าน </a>
+                    <a class="list-group-item" href="{% url 'reset_password' %}"> เปลี่ยนรหัสผ่าน </a>
                 </ul>
                 <br>
                 <a class="btn btn-light btn-block" href="#"> <i class="fa fa-power-off"></i> <span class="text">ออกจากระบบ</span> </a>
