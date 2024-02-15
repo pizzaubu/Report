@@ -1,7 +1,9 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegistrationForm
 from .models import UserManager
+from allfiles.models import MyFiles
 
 def user_login(request):
     if request.method == 'POST':
@@ -41,3 +43,13 @@ def reset_password(request):
     return render(request, 'accounts/reset_password.html')
 
 
+@login_required
+def dashboard(request):
+    # ดึงข้อมูลไฟล์ทั้งหมดที่ผู้ใช้งานนี้อัปโหลด
+    user_files = MyFiles.objects.filter(user=request.user)  # ดึงข้อมูลไฟล์ที่เชื่อมโยงกับผู้ใช้งานนี้
+
+    context = {
+        'user_files': user_files,  # ส่งข้อมูลไฟล์ไปยัง template
+    }
+
+    return render(request, 'accounts/dashboard.html', context)

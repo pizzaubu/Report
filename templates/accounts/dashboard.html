@@ -1,0 +1,106 @@
+{% extends 'base.html' %} {% load static %} {% load humanize %} 
+
+{% block content %}
+
+<section class="section-content padding-y bg">
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-3">
+                <!--   SIDEBAR   -->
+                <ul class="list-group">
+                    <a class="list-group-item active" href="#"> Dashboard </a>
+                    <a class="list-group-item" href="#"> การตั้งค่า </a>
+                    <a class="list-group-item" href="#"> เปลี่ยนรหัสผ่าน </a>
+                </ul>
+                <br>
+                <a class="btn btn-light btn-block" href="#"> <i class="fa fa-power-off"></i> <span class="text">ออกจากระบบ</span> </a>
+                <!--   SIDEBAR .//END   -->
+            </aside>
+            <main class="col-md-9">
+                <article class="card">
+                    <header class="card-header">
+                        <strong class="d-inline-block mr-3"></strong>
+                        <span>โปรไฟล์ของฉัน</span>
+                    </header>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                      <strong>ชื่อ:</strong> 
+                                    </li>
+                                    <li class="list-group-item">
+                                      <strong>ตำแหน่ง:</strong> 
+                                    </li>
+                                    <li class="list-group-item">
+                                      <strong>เบอร์โทร:</strong> 
+                                    </li>
+                                    <li class="list-group-item">
+                                      <strong>อีเมลล์:</strong> 
+                                    </li>
+                                  </ul>
+                            </div>
+                            <div class="offset-2 col-4">
+                              <div class="">
+                                <img src="#" alt="Profile Picture" id="profile-preview" class="img-fluid rounded-circle" style="max-width: 200px; max-height: 200px;">
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    <!-- card-body .// -->
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                <th>รายละเอียดไฟล์</th>
+                                <th>ชื่อไฟล์</th>
+                                <th>วันที่อัปโหลด</th>
+                                <th>ดาวน์โหลด</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg_table">
+                                <!-- Loop through uploaded files -->
+                                {% for file in user_files %}
+                                <tr>
+                                    <td>{{ file.description }}</td>
+                                    <td>{{ file.file.name }}</td>
+                                    <td>{{ file.uploaded_at }}</td>
+                                    <td><a href="{{ file.file.url }}" class="btn btn-primary">ดาวน์โหลด</a></td>
+                                </tr> 
+                                {% empty %}
+                                <tr>
+                                    <td colspan="4">ไม่มีไฟล์ที่อัปโหลด</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            </table>
+                        </div>                    
+                    <!-- table-responsive .end// -->
+                </article>
+                <!-- order-group.// -->
+            </main>
+        </div>
+        <!-- row.// -->
+    </div>
+
+</section>
+<script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+  
+        reader.onload = function (e) {
+          $('#profile-preview')
+            .attr('src', e.target.result);
+        };
+  
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  
+    $("#profile-picture").change(function(){
+      readURL(this);
+    });
+  </script>
+  
+{% endblock %}
