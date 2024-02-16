@@ -27,16 +27,16 @@
                             <div class="col-6">
                                 <ul class="list-group">
                                     <li class="list-group-item">
-                                      <strong>ชื่อ:</strong> 
+                                      <strong>ชื่อ:</strong> {{ request.user.first_name }} {{ request.user.last_name }}
                                     </li>
                                     <li class="list-group-item">
-                                      <strong>ตำแหน่ง:</strong> 
+                                      <strong>ตำแหน่ง:</strong> {{ request.user.rank }}
                                     </li>
                                     <li class="list-group-item">
-                                      <strong>เบอร์โทร:</strong> 
+                                      <strong>เบอร์โทร:</strong> {{ request.user.phone_number }}
                                     </li>
                                     <li class="list-group-item">
-                                      <strong>อีเมลล์:</strong> 
+                                      <strong>อีเมลล์:</strong> {{ request.user.email }}
                                     </li>
                                   </ul>
                             </div>
