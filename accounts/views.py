@@ -5,6 +5,7 @@ from .forms import UserLoginForm, UserRegistrationForm
 from .models import UserManager
 from allfiles.models import MyFiles
 from django.forms.models import model_to_dict
+from django.contrib import messages, auth
 
 def user_login(request):
     context = {'form': UserLoginForm()}  # กำหนด context กับฟอร์มเริ่มต้นที่นี่
@@ -56,3 +57,9 @@ def dashboard(request):
     }
 
     return render(request, 'accounts/dashboard.html', context)
+
+@login_required(login_url = 'login')
+def logout(request):
+    auth.logout(request)
+    messages.success(request, 'คุณออกจากระบบเรียบร้อยแล้ว')
+    return redirect('login')

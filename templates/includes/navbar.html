@@ -45,7 +45,7 @@
         {% else %}
           <div class="mx-2">
             <small class="title text-muted">ยินดีต้อนรับ {{user.first_name}}!</small><br>
-            <a href="{% url 'dashboard' %}">แดชบอร์ด</a> | <a href="#"> ออกจากระบบ</a>
+            <a href="{% url 'dashboard' %}">แดชบอร์ด</a> | <a href="{% url 'logout' %}"> ออกจากระบบ</a>
           </div>
         {% endif %}
       </div>
