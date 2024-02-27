@@ -4,20 +4,23 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserLoginForm, UserRegistrationForm
 from .models import UserManager
 from allfiles.models import MyFiles
+from django.forms.models import model_to_dict
 
 def user_login(request):
+    context = {'form': UserLoginForm()}  # กำหนด context กับฟอร์มเริ่มต้นที่นี่
     if request.method == 'POST':
         form = UserLoginForm(request.POST)
+        context['form'] = form  # อัปเดต context กับฟอร์มที่กรอกข้อมูลแล้ว
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
             user = authenticate(request, username=username, password=password)
-            if user:
+            if user is not None:
                 login(request, user)
-                return redirect('home')  
-    else:
-        form = UserLoginForm()
-    return render(request, 'accounts/login.html', {'form': form})
+                return redirect('home')
+    # คืนค่า HttpResponse ในทุกกรณี
+    return render(request, 'accounts/login.html', context)
+
 
 def user_register(request):
     if request.method == 'POST':

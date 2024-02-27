@@ -26,6 +26,8 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):
+
+
     username = models.CharField(max_length=100, unique=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=100)
@@ -33,13 +35,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
     is_admin = models.BooleanField(default=False)
-    is_staff = models.BooleanField(default=False)  # เพิ่มบรรทัดนี้
+    is_staff = models.BooleanField(default=False) 
 
     objects = UserManager()
 
     USERNAME_FIELD = 'username'
-    # ลบบรรทัดนี้
-    # REQUIRED_FIELDS = ['email']
 
     groups = models.ManyToManyField(
         'auth.Group',

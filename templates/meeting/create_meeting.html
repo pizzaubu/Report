@@ -1,10 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Create Meeting</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create Meeting</button>
-</form>
+<section>
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <h2>สร้างหัวข้อการประชุม</h2>
+            <div class="card mt-2">
+                <div class="offset-3 col-md-6 offset-3">
+                    <div class="card-body">
+                        <form class="mx-2 mt-2 mb-2" method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit">Create Meeting</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
