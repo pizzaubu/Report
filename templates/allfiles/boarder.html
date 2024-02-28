@@ -1,0 +1,49 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load humanize %} 
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row">
+            <aside class="col-md-3">
+                <!--   SIDEBAR   -->
+                <ul class="list-group">
+                    <a class="list-group-item active" href="#"> จัดตั้งคณะกรรมการ </a>
+                    <a class="list-group-item" href="#"> รายชื่อคณะกรรมการปัจจุบัน </a>
+                    <a class="list-group-item" href="#"> แก้ไขข้อมูลคณะกรรมการ </a>
+                </ul>
+            </aside>
+            <main class="col-md-9">
+                <article class="card">
+                    <header class="card-header">
+                        <strong class="d-inline-block mr-3"></strong>
+                        <span>จัดตั้งคณะกรรมการ</span>
+                    </header>
+                </article>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <form>
+                                <select class="form-control">
+                                    <option>รายชื่อการประชุม</option>
+                                </select>
+                                <h1>ชื่อกรรมการ</h1>
+                                <div class="form-row">
+                                    <div class="col">
+                                      <input type="text" class="form-control" placeholder="First name">
+                                    </div>
+                                    <div class="col">
+                                      <input type="text" class="form-control" placeholder="Last name">
+                                    </div>
+                                  </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </form>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

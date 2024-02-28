@@ -1,10 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Create Meeting Report</h2>
-  <form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Report</button>
-  </form>
+<section>
+  <div class="container-fluid">
+    <div class="row">
+      <main class="offset-3 col-md-6">
+        <article class="card mt-3 mb-3">
+            <header class="card-header">
+                <strong class="d-inline-block mr-3"></strong>
+                <h2>Create Meeting Report</h2>
+            </header>
+            <div class="card-body mt-3">
+              <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Save Report</button>
+              </form>
+            </div>
+        </article>
+    </main>
+    </div>
+  </div>
+</section>
 {% endblock %}
