@@ -13,13 +13,11 @@
       <ul class="navbar-nav me-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa fa-bars"></i> เอกสารทั้งหมด
+            <i class="fa fa-bars"></i> หมวดหมู่
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <!-- <li><a class="dropdown-item" href="#"></a></li>
-            {% for category in links %}
-              <li><a class="dropdown-item" href="#">#</a></li>
-            {% endfor %} -->
+            <li><a class="dropdown-item" href="#">รายชื่อหัวข้อการประชุมทั้งหมด</a></li>            
+            <li><a class="dropdown-item" href="#">เอกสารทั้งหมด</a></li>
           </ul>
         </li>
         <li class="nav-item">
@@ -44,7 +42,7 @@
           </div>
         {% else %}
           <div class="mx-2">
-            <small class="title text-muted">ยินดีต้อนรับ {{user.first_name}}!</small><br>
+            <small class="title text-muted">ยินดีต้อนรับ {{user.firstname}}!</small><br>
             <a href="{% url 'dashboard' %}">แดชบอร์ด</a> | <a href="{% url 'logout' %}"> ออกจากระบบ</a>
           </div>
         {% endif %}
